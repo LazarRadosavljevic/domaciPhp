@@ -1,3 +1,38 @@
+<?php
+
+require "kon_db.php";
+require "korisnik.php";
+
+session_start();
+if (isset($_POST['kor_ime']) && isset($_POST['sifra'])) {
+    $korime= $_POST['kor_ime'];
+    $sif= $_POST['sifra'];
+
+
+
+$korisnik = new Korisnik(1, $korime, $sif);
+    
+ $rezultat = Korisnik::ulogujKorisnika($korisnik, $kon);
+
+
+
+if($rezultat->num_rows==1){
+    $row = mysqli_fetch_assoc($rezultat);
+        $_SESSION['korisnik_id']=$row['id'];
+        $_SESSION['korisnicko_ime']=$_POST['kor_ime'];
+      
+    header('Location: novi_zahtev.php');
+    exit();
+    
+}else{
+    $poruka="Pogresno ime/sifra!";
+    echo "<script>alert('$poruka');</script>";
+   
+}
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
