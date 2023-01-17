@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+.navbar {
+    background-color: aliceblue;
+}
+
+.navbar-nav {
+    float:none;
+    margin:0 auto;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+.navbar-nav > li {
+    display: inline-block;
+    float:none;
+}
+
+.navbar-nav a {
+    margin-left: 1cm !important;
+    margin-right: 1cm !important ;
+    font-size: 30px !important;
+    color: black !important;
+}
+.navbar-nav a:hover {
+    color: rgb(91, 78, 138) !important;
+}
+
+@media screen and (max-width:992px) {
+    .navbar-nav {
+        flex-direction: column;
+    }
+}

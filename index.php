@@ -5,7 +5,7 @@ require "korisnik.php";
 
 session_start();
 if (isset($_POST['kor_ime']) && isset($_POST['sifra'])) {
-
+    
     $korime= $_POST['kor_ime'];
     $sif= $_POST['sifra'];
 
