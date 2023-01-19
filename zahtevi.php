@@ -32,27 +32,28 @@ $podaci = Zahtev::vratiZahteve($kon);
         </div>
     </nav>
     <div class="container" id="container">
-    <table class="tabela">
+    <table class="tabela" id="tabela">
         <thead>
         <tr>
         <th colspan="7"><h2>Zahtevi korisnika '<?php echo $_SESSION['korisnicko_ime'];?>'</h2></th>
         </tr>
         <tr>
         </thead>
-        <td></td>
-            <td>Ime</td>
-            <td>Prezime</td>
-            <td>Nacionalnost</td>
-            <td>Grad</td>
-            <td>Zahtev</td>
+        <th></th>
+            <th id="imeKorisnika1" >Ime</th>
+            <th id="prezimeKorisnika1" >Prezime</th>
+            <th>Nacionalnost</th>
+            <th>Grad</th>
+            <th>Zahtev</th>
         </tr>
+        <tbody id="teloTabele">
        <?php
     while ($red=mysqli_fetch_assoc($podaci)) :
        ?>
        <tr>
        <td><input type="checkbox" name="cekboks" value=<?php echo $red["id"] ?>></td>
-        <td><?php echo $red['ime'];?></td>
-        <td><?php echo $red['prezime'];?></td>
+        <td id="imeKorisnika"><?php echo $red['ime'];?></td>
+        <td id="prezimeKorisnika"><?php echo $red['prezime'];?></td>
         <td><?php echo $red['nacionalnost'];?></td>
         <td><?php echo $red['grad'];?></td>
         <td id="promeniZahtev"><?php echo $red['zahtev'];?></td>
@@ -60,6 +61,7 @@ $podaci = Zahtev::vratiZahteve($kon);
         <td><input type="button" name="edit" value="Izmeni" id="<?php echo $red["id"]; ?>" class="btn btn-info edit_data" /></td>
         </tr>
         <?php endwhile; ?>
+        </tbody>
         <tfoot>
             <tr>
         <td><button id="obrisiDugme" formmethod="post" class="dugmeBrisanje" style=" background-color: deepskyblue; color:white; border: 1px solid white; border-radius:20px;">Obrisi</button></td>

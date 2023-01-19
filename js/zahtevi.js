@@ -73,3 +73,93 @@ $(document).ready(function() {
 });    
         
 });
+$('#imeKorisnika1').click(function() {
+    console.log("Sortiranje");
+    var brPromena=0;
+  var tabela, red, promeni, i, x, y, trebaPromena;
+  tabela = document.getElementById("tabela");
+  promeni = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (promeni) {
+    //start by saying: no switching is done:
+    promeni = false;
+    red = tabela.getElementsByTagName('tr');
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 3; i < (red.length - 2); i++) {
+      //start by saying there should be no switching:
+      trebaPromena = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = red[i].getElementsByTagName('td')[1];
+      y = red[i + 1].getElementsByTagName('td')[1];
+      console.log(x);
+      console.log(y);
+      //check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        //if so, mark as a switch and break the loop:
+        trebaPromena = true;
+        brPromena++;
+        break;
+      }
+    }
+    if (trebaPromena) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      red[i].parentNode.insertBefore(red[i + 1], red[i]);
+      promeni = true;
+    }
+  }
+  if (brPromena>0) {
+      brPromena=0;
+      $('#imeKorisnika1').html('Ime&#8593');
+      $('#prezimeKorisnika1').html('Prezime');
+  }
+});
+
+
+$('#prezimeKorisnika1').click(function() {
+    console.log("Sortiranje");
+    var brPromena=0;
+  var tabela, red, promeni, i, x, y, trebaPromena;
+  tabela = document.getElementById("tabela");
+  promeni = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (promeni) {
+    //start by saying: no switching is done:
+    promeni = false;
+    red = tabela.getElementsByTagName('tr');
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 3; i < (red.length - 2); i++) {
+      //start by saying there should be no switching:
+      trebaPromena = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = red[i].getElementsByTagName('td')[2];
+      y = red[i + 1].getElementsByTagName('td')[2];
+      console.log(x);
+      console.log(y);
+      //check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        //if so, mark as a switch and break the loop:
+        trebaPromena = true;
+        brPromena++;
+        break;
+      }
+    }
+    if (trebaPromena) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      red[i].parentNode.insertBefore(red[i + 1], red[i]);
+      promeni = true;
+    }
+  }
+  if (brPromena>0) {
+      brPromena=0;
+      $('#prezimeKorisnika1').html('Prezime&#8593');
+      $('#imeKorisnika1').html('Ime');
+  }
+});
