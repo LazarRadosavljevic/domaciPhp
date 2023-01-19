@@ -100,3 +100,6 @@ input[type=text] {
         flex-direction: column;
     }
 }
+#imePoruka, #prezimePoruka {
+    color: red;
+}

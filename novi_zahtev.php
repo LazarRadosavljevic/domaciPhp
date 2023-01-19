@@ -75,13 +75,15 @@ $zahtev1=new Zahtev(null,$fime,$fprezime,$fnacionalnost,$fgrad,$fzahtev);
             <div class="labelKlasa"></div>
             <label for="ime">Ime:</label>
             </div>
-            <input name="ime" id="ime" type="text" class="rad-sa-formom" placeholder="Ime" required>
+            <input name="ime" id="ime" type="text" class="rad-sa-formom" placeholder="Ime" onblur="validacijaIme()" required>
+        <p id="imePoruka"></p>
         </div>
         <div class="prezime">
         <div class="labelKlasa">
             <label for="prezime">Prezime:</label>
         </div>
-            <input name="prezime" id="prezime" type="text" class="rad-sa-formom" placeholder="Prezime" required>
+        <input name="prezime" id="prezime" type="text" class="rad-sa-formom" placeholder="Prezime" onblur="validacijaPrezime()" required>
+            <p id="prezimePoruka"></p>
         </div>
         <div class="nacionalnost">
             <div class="labelKlasa">
